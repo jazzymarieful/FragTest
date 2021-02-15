@@ -42,14 +42,19 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener itemClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                BlankFragment blankFragment = new BlankFragment();
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
                 Bundle bundle = new Bundle();
                 bundle.putString("pressed", plots.get(position));
+
+                BlankFragment blankFragment = new BlankFragment();
                 blankFragment.setArguments(bundle);
-                fragmentTransaction.add(R.id.frame,blankFragment);
-                fragmentTransaction.commit();
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame,blankFragment).commit();
+
+//                fragmentTransaction.add(R.id.frame,blankFragment);
+//                fragmentTransaction.commit();
             }
         };
         listView.setOnItemClickListener(itemClickListener);

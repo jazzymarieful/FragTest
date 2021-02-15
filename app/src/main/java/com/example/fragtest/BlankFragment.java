@@ -25,6 +25,8 @@ public class BlankFragment extends Fragment {
         t1 = (TextView) view.findViewById(R.id.text1);
         Bundle bundle = getArguments();
         String pressed = bundle.getString("pressed");
+        t1.setText(pressed);
+
         return view;
     }
 }
